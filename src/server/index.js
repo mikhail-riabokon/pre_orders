@@ -1,7 +1,7 @@
 const express = require('express');
+const config = require('./config');
 const app = express();
-const port = 9999;
 
-app.listen(port, () => {
-  console.log('Server is started http://localhost:%s', port);
+app.listen(config.port, () => {
+  console.log('Server is started http://localhost:%s', config.port);
 });
