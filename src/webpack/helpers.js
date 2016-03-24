@@ -1,12 +1,13 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const appRoot = path.resolve(__dirname, '..', '..');
+const srcPath = path.join(appRoot, 'src', 'client');
+
 
 // import notify from './plugins/notifyStats';
 
 
-const appRoot = path.resolve(__dirname, '..', '..');
-const srcPath = path.join(appRoot, 'src', 'client');
 
 exports.getJsEntry = () => {
   const result = [
@@ -114,8 +115,6 @@ exports.getPlugins = () => {
       new ExtractTextPlugin('[name].css')
     );
   }
-
-
 
   return result;
 }
