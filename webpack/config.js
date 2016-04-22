@@ -3,6 +3,7 @@ const config = {
   entry: helpers.getJsEntry(),
   output: helpers.getOutput(),
   module: {
+    preLoaders: helpers.getPreLoaders(),
     loaders: helpers.getLoaders(),
   },
   babel: helpers.getBabelConfig(),

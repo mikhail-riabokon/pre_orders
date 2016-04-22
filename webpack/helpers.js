@@ -26,6 +26,16 @@ exports.getOutput = () => {
   };
 };
 
+exports.getPreLoaders = () => {
+  return [
+    {
+      test: /(\.js$|\.jsx$)/,
+      loader: 'eslint-loader',
+      exclude: /node_modules/
+    }
+  ];
+};
+
 exports.getLoaders = () => {
   function getStyleLoader() {
     return process.env.HOT
