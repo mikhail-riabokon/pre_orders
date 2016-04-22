@@ -1,13 +1,8 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-const appRoot = path.resolve(__dirname, '..', '..');
+const appRoot = path.resolve(__dirname, '..');
 const srcPath = path.join(appRoot, 'src', 'client');
-
-
-// import notify from './plugins/notifyStats';
-
-
 
 exports.getJsEntry = () => {
   const result = [
@@ -25,7 +20,7 @@ exports.getJsEntry = () => {
 
 exports.getOutput = () => {
   return {
-    path: path.resolve(appRoot, 'assets'),
+    path: path.resolve(appRoot, 'build', 'assets'),
     filename: 'app.js',
     publicPath: '/assets',
   };
@@ -94,13 +89,6 @@ exports.getPlugins = () => {
   }
 
   const result = [
-    // new TransferWebpackPlugin([{
-    //   from: 'node_modules/democracy-styles/democracy/static/images',
-    //   to: 'images',
-    // }]),
-    // function () {
-    //   this.plugin('done', notify);
-    // },
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(uglifyConfig),
   ];

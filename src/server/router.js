@@ -1,5 +1,4 @@
 /* eslint-disable new-cap */
-
 import renderInitialPage from './middlewares/renderInitialPage';
 import express from 'express';
 

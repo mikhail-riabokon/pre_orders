@@ -1,4 +1,4 @@
-// const webpackHotMiddleware = require('webpack-hot-middleware');
-// const webpackDevMiddleware = require('./webpackDev');
-//
-// module.exports = webpackHotMiddleware(webpackDevMiddleware.compiler);
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import { webpackCompiler } from './webpackDev';
+
+export default webpackHotMiddleware(webpackCompiler);
