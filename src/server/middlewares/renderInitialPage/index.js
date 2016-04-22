@@ -1,7 +1,7 @@
-const React = require('react');
-const ReactDom = require('react-dom/server');
-const InitialPage = require('./InitialPage');
+import React from 'react';
+import ReactDom from 'react-dom/server';
+import InitialPage from './InitialPage';
 
-module.exports = () => (req, res) => {
-  res.send(ReactDom.renderToStaticMarkup(React.createElement(InitialPage, null)));
-};
+export default function renderInitialPage(req, res) {
+  res.status(200).send(ReactDom.renderToStaticMarkup(<InitialPage />));
+}

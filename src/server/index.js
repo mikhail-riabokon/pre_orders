@@ -1,19 +1,16 @@
-const express = require('express');
-const config = require('./config');
-const renderInitialPage = require('./middlewares/renderInitialPage');
+import errorHandler from './middlewares/errorHandler';
+import bodyParser from 'body-parser';
+import { logger } from './utils';
+import express from 'express';
+import router from './router';
+
 const app = express();
+const port = process.env.PORT || 3000;
 
-if (process.env.HOT) {
-  const webpackDevMiddleware = require('./middlewares/webpackDev');
-  const webpackHotMiddleware = require('./middlewares/webpackHot');
+app.use(bodyParser.json());
+app.use(router);
+app.use(errorHandler);
 
-  app.use(webpackDevMiddleware.default);
-  app.use(webpackHotMiddleware);
-}
-
-app.use('/assets', express.static('assets'));
-app.get('*', renderInitialPage());
-
-app.listen(config.port, () => {
-  console.log('Server is started http://localhost:%s', config.port);
+app.listen(port, () => {
+  logger.info(`Server started at http://localhost:${port}`);
 });
