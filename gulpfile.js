@@ -1,6 +1,5 @@
 const Cache = require('gulp-file-cache');
 const nodemon = require('gulp-nodemon');
-const webpack = require('gulp-webpack');
 const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
 const gulp = require('gulp');
